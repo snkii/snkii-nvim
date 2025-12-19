@@ -33,8 +33,21 @@ opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- clipboard - OSC 52 for wezterm SSH multiplexing
+-- copy works via OSC 52, paste uses Ctrl+Shift+V in wezterm
+vim.opt.clipboard = "unnamedplus"
+
+vim.g.clipboard = {
+  name = "OSC 52 (WezTerm SSHMUX)",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = function() end,
+    ["*"] = function() end,
+  },
+}
 
 -- split windows
 opt.splitright = true -- split vertical window to the right
