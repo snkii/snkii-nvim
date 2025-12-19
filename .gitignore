@@ -1,0 +1,7 @@
+# OS / editor
+.DS_Store
+
+# Neovim runtime state (보통은 리포에 안 올림)
+lazy-lock.json
+lua-language-server/
+
