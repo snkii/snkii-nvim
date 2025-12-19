@@ -38,15 +38,15 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 vim.opt.clipboard = "unnamedplus"
 
 vim.g.clipboard = {
-  name = "OSC 52 (WezTerm SSHMUX)",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-  },
-  paste = {
-    ["+"] = function() end,
-    ["*"] = function() end,
-  },
+	name = "OSC 52 (WezTerm SSHMUX)",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = function() end,
+		["*"] = function() end,
+	},
 }
 
 -- split windows
